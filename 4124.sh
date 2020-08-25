@@ -76,7 +76,9 @@ done
 ## avslutter med en feil kode og fjerner historie
 clear
 sleep 10
-echo " Error: NIGGER STARVING..."
+echo " Error: 1..."
+sleep 3
+echo " Exiting..."
 sleep 3
 clear
 sleep 1
