@@ -9,7 +9,8 @@ offs=4124
 clear
 
 ## liten meme før start av program (kan slenge med alt du trenger før start av program)
-echo "Instructions said launch with SUDO lazy ass"
+if [ -d "$mappe" ]
+echo "Follow instructions next time..."
 
 ## stille kommandoer etter meme
 
