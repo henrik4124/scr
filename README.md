@@ -2,3 +2,4 @@
 scripts
 does only work for my pc.
 just for automatic scripts for my pc no downloads
+lp source : https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
