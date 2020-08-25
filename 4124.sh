@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## info til script
+
+beta=4124-beta
+offs=4124
+
 ## fjerner alt tidligere i terminalen
 clear
 
@@ -9,24 +14,40 @@ echo "Instructions said launch with SUDO lazy ass"
 ## stille kommandoer etter meme
 
 clear
-mappe=/home/henrik/Desktop/4124-test
+mappe=/home/$USER/Desktop/4124-beta
 if [ -d "$mappe" ]; then
 
-	echo "Program seems to be installed!"
+	echo "$USER seems to have $beta installed!"
 	sleep 3
 	clear
 
 else
  
-	echo "Script is not installed, installing!"
+	echo "$beta is not installed, installing!"
 	sleep 3
-	mkdir  /home/henrik/Desktop/4124-test
+	mkdir  /home/$USER/Desktop/4124-beta
+	sleep 5
+	cd /home/$USER/Desktop/4124-beta
+	sleep 3
+	git clone https://github.com/henrik4124/scr
+	sleep 1
+	cd 
+	sleep 2
 	clear
+	echo     "      ____         __       ____  _____                __    __         "
+	echo      "    /  _/__  ___ / /____ _/ / / / ___/__  __ _  ___  / /__ / /____   "
+	echo      "    / // _ \(_-</ __/ _  / / / / /__/ _ \/  ' \/ _ \/ / -_) __/ -_)  "
+	echo      "  /___/_//_/___/\__/\_,_/_/_/  \___/\___/_/_/_/ .__/_/\__/\__/\__/   "
+	echo      "                                            /_/                     "
+	echo "Restart from the new directory!"
 
+	sleep 5
+	exit
 fi
 
+
 sleep 2
-echo "Reloading with SUDO powers.."
+echo "Checking $USER for SUDO pwrs.."
 sleep 2
 
 ## logo og info
@@ -54,9 +75,8 @@ echo "  [2]  DIR SEARCH"
 ## menyen
 
 read -p "Select script: " mc
+
 return $mc
-
-
 
 while [[ "$m" != "3" ]]
 do
@@ -68,17 +88,15 @@ do
         echo "directory search choosen"
 	sleep 10
     fi
-    showMenu
     m=$?
 done
-}
 
 ## avslutter med en feil kode og fjerner historie
 clear
-sleep 10
-echo " Error: 1..."
-sleep 3
-echo " Exiting..."
+sleep 5
+echo " Error: 01..."
+sleep 1
+echo " Exiting.."
 sleep 3
 clear
 sleep 1
