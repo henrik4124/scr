@@ -25,14 +25,14 @@ mappe=/home/$USER/Desktop/4124-beta
 
 if [ -d "$mappe" ]; then
 
-	echo "               _                           _                 _     "
-	echo "              | |                         | |               | |    "
-	echo " _  _  _ _____| | ____ ___  ____  _____   | |__  _____  ____| |  _ "
-	echo "| || || | ___ | |/ ___/ _ \|    \| ___ |  |  _ \(____ |/ ___| |_/ )"
-	echo "| || || | ____| ( (__| |_| | | | | ____|  | |_) / ___ ( (___|  _ ( "
-	echo " \_____/|_____)\_\____\___/|_|_|_|_____)  |____/\_____|\____|_| \_)"
-	echo "                                                                   "  
-	echo "            $USER seems to have $beta installed!                   "
+	echo "               _                          "
+	echo "              | |                         "
+	echo " _  _  _ _____| | ____ ___  ____  _____   "
+	echo "| || || | ___ | |/ ___/ _ \|    \| ___ |  "
+	echo "| || || | ____| ( (__| |_| | | | | ____|  "
+	echo " \_____/|_____)\_\____\___/|_|_|_|_____)  "
+	echo "                                          "  
+	echo " $USER seems to have $beta installed!   "
 	
 	sleep 5
 	clear
@@ -42,42 +42,59 @@ if [ -d "$mappe" ]; then
 else
  
 	echo "$beta is not installed"
-	echo "Please activate sudo power"
 	sleep 2
-	sudo xterm -e sudo ./test.sh
+
+	echo "installing.."
 	sleep 5
+	clear
+
 	mkdir  /home/$USER/Desktop/4124-beta
 	sleep 5
+
 	cd /home/$USER/Desktop/4124-beta
 	sleep 3
+
 	sudo apt-get install git
 	sleep 1
+
 	git clone https://github.com/henrik4124/scr
 	sleep 1
+
 	git clone https://github.com/maurosoria/dirsearch
 	sleep 1
+
 	git clone https://github.com/Und3rf10w/kali-anonsurf
 	sleep 1
+
 	sudo apt install xterm
 	sleep 1
+
 	sudo apt install python
 	sleep 3
+
 	cd kali-anonsurf
 	sleep 2
+
 	sudo xterm -e sudo ./installer.sh
-	clear
-	echo "Downloads complete"
-	
 	sleep 1
+
+	cd $mappe
+	cd scr
+	chmod +x test.sh
+	chmod +x 4124.sh
+	sleep 1
+
 	cd 
 	sleep 2
 	clear
+	
 	echo     "      ____         __       ____  _____                __    __         "
 	echo      "    /  _/__  ___ / /____ _/ / / / ___/__  __ _  ___  / /__ / /____   "
 	echo      "    / // _ \(_-</ __/ _  / / / / /__/ _ \/  ' \/ _ \/ / -_) __/ -_)  "
 	echo      "  /___/_//_/___/\__/\_,_/_/_/  \___/\___/_/_/_/ .__/_/\__/\__/\__/   "
 	echo      "                                            /_/                     "
 	echo "Restart from the new directory!"
+	echo "$mappe /scr/4124.sh"
 
 	sleep 5
 	exit
@@ -156,6 +173,7 @@ do
 
             cd $mappe
             cd dirsearch
+
             python3 dirsearch.py -e dir -u $IP
 
             sleep 10
