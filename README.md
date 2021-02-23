@@ -1,6 +1,8 @@
 # scr
-scripts for personal use
+Script Coped to Rally
 
-§1. does only work for my pc.                                                                                            
+§1. only for my personal use (HBTH/4124)                                                                                          
 
-lp source : https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+§2. all use of this script / scipts are forbidden for others then myself.
+
+§3. not allowed to use any of the script for own use nor copying of script (this means all / parts of code/s)
