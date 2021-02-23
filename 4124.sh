@@ -16,10 +16,13 @@ if [ -d "$mappe" ]; then
 
 fi
 
-## stille kommandoer etter meme
+## skjekker om det er retunerende bruker eller første gangs bruker
 
 clear
 mappe=/home/$USER/Desktop/4124-beta
+
+	## hvis det er en retunerende bruker sier den velkommen og går til meny
+
 if [ -d "$mappe" ]; then
 
 	echo "               _                           _                 _     "
@@ -33,6 +36,8 @@ if [ -d "$mappe" ]; then
 	
 	sleep 5
 	clear
+
+		## hvis det er første gangs bruker installerer den alt den trenger
 
 else
  
@@ -54,6 +59,8 @@ else
 	git clone https://github.com/Und3rf10w/kali-anonsurf
 	sleep 1
 	sudo apt install xterm
+	sleep 1
+	sudo apt install python
 	sleep 3
 	cd kali-anonsurf
 	sleep 2
@@ -61,7 +68,6 @@ else
 	clear
 	echo "Downloads complete"
 	
-
 	sleep 1
 	cd 
 	sleep 2
@@ -77,18 +83,28 @@ else
 	exit
 fi
 
+##les test.sh for info om denne delen
 
-sleep 2
 echo "Checking $USER for SUDO pwrs.."
+
 cd $mappe
 sleep 1
+
+cd scr
+sleep 1
+
 sudo xterm -e sudo ./test.sh
 sleep 2
+
+## retunerer til $
+
 cd
 
 ## logo og info
+
 clear
 sleep 2
+
 echo "$green" ""
 echo "              | || |/_ |__ \| || |                "
 echo "              | || |_| |  ) | || |_               "
@@ -108,8 +124,11 @@ echo "                 Welcome Back $USER"
 ## menyen
 
 PS3='Choose script: '
+
 options=("VPN" "nmap scan" "dir search" "Quit")
+
 select opt in "${options[@]}"
+
 do
     case $opt in
 
@@ -129,7 +148,16 @@ do
             ;;
 
         "dir search")
-            echo "you chose choice $REPLY which is $opt"
+            echo "directory search is choosen"
+            sleep 2
+
+            echo "Select ip adress to scan: "
+            read IP
+
+            cd $mappe
+            cd dirsearch
+            python3 dirsearch.py -e dir -u $IP
+
             sleep 10
             ;;
 
