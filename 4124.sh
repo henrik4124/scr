@@ -8,12 +8,6 @@ offs=4124
 ## fjerner alt tidligere i terminalen
 clear
 
-## skjekker om mappen som programmet lager finnes
-if [ -d "$mappe" ]; then
-
-	echo "Did you even read the readme?.."
-	sleep 2
-
 fi
 
 ## skjekker om det er retunerende bruker eller første gangs bruker
@@ -94,7 +88,7 @@ else
 	echo      "  /___/_//_/___/\__/\_,_/_/_/  \___/\___/_/_/_/ .__/_/\__/\__/\__/   "
 	echo      "                                            /_/                     "
 	echo "Restart from the new directory!"
-	echo "$mappe /scr/4124.sh"
+	echo "$mappe/scr/4124.sh"
 
 	sleep 5
 	exit
@@ -161,6 +155,7 @@ do
         "nmap scan")
 			clear
             echo "nmap choosen"
+	    
             sleep 10
             ;;
 
@@ -202,15 +197,4 @@ do
 
     esac
 done
-
-## avslutter med en feil kode og fjerner historie, denne blir bare aktivert om det er feil i koden
-
-clear
-sleep 5
-echo " Error: 01..."
-sleep 1
-echo " Exiting.."
-sleep 3
-clear
-sleep 1
-exit 
+exit
