@@ -8,6 +8,12 @@ offs=4124
 ## fjerner alt tidligere i terminalen
 clear
 
+## skjekker om mappen som programmet lager finnes
+if [ -d "$mappe" ]; then
+
+	echo "Did you even read the readme?.."
+	sleep 2
+
 fi
 
 ## skjekker om det er retunerende bruker eller første gangs bruker
@@ -30,6 +36,9 @@ if [ -d "$mappe" ]; then
 	
 	sleep 5
 	clear
+
+	## går til menyen
+
 
 		## hvis det er første gangs bruker installerer den alt den trenger
 
@@ -113,6 +122,8 @@ cd
 
 ## logo og info
 
+
+meny(){
 clear
 sleep 2
 
@@ -132,7 +143,15 @@ echo ""
 echo "$blue" "                4124 script 1.9.0       "
 echo "                 Welcome Back $USER"
 
+echo "1) VPN"
+echo "2) nmap scan"
+echo "3) dir search"
+echo "4) Quit"
+}
+
 ## menyen
+
+meny
 
 PS3='Choose script: '
 
@@ -148,15 +167,50 @@ do
             echo "VPN choosen"
             cd $mappe
             cd kali-anonsurf
-            sudo anonsurf start
+            echo "Turn VPN off or on?"
+
+            read VPN
+
+            if [ $VPN == on ];
+            
+            then
+
+            	sudo anonsurf start
+
+            	echo "VPN is on"
+
+            	sleep 5
+
+            	meny
+
+        	else
+
+        		sudo anonsurf stop
+
+        		echo "VPN is now turned off"
+
+        		sleep 5
+
+        		meny
+
+        	fi
+
             sleep 10
             ;;
 
         "nmap scan")
 			clear
             echo "nmap choosen"
-	    
+            sleep 5
+            
+           	clear
+           	#select nmap in "${nmap[@]}"
+            
+
             sleep 10
+
+            meny
+
             ;;
 
         "dir search")
@@ -172,6 +226,8 @@ do
             python3 dirsearch.py -e dir -u $IP
 
             sleep 10
+
+            meny
             ;;
 
         "Quit")
@@ -197,4 +253,5 @@ do
 
     esac
 done
-exit
+
+exit 
