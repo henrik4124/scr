@@ -94,7 +94,7 @@ read svar
     	then
 
             clear
-            nmap
+            nmapm
    fi
 
 
@@ -157,10 +157,10 @@ nmapm(){
 			echo "     |_/\___/\_____/   |_/___/  \_| \_/\_|  |_/\_| |_/\_|    "
 			echo "                                                             "
 			echo "                                                            "
-            sleep 2
+            sleep 1
             
-            echo "what type off nmap scan do you wish to do?"
-            echo "-------------------------------------------"
+            echo "what type off ${green}nmap scan${nc} do you wish to do?"
+            echo "-----------------------------------------"
 			echo "1) scan a ip"           
             echo "2) scan for subnets"
             echo "3) scan for open ports"
@@ -169,17 +169,22 @@ nmapm(){
             echo "6) hearthbleed testing"
             echo "7) return to menu"
 
-            	read nmap
+            	read svalg
 
-            if [ $nmap == 1 ];
+            if [ $svalg == 1 ];
             	
             	then
 
+            		echo " "
             		echo "What ip do you wish to scan?"
 
             			read nip
 
+            		echo "----------------------------"
+            		
             		nmap $nip
+
+            		echo "------------------------------------------"
 
             		echo "returning to nmap menu (10s)"
 
@@ -188,16 +193,20 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 2 ];
+            if [ $svalg == 2 ];
             	
             	then
 
+            		echo " "
             		echo "what is the ip for the subnets? (ends with 0)"
 
             			read subip
 
+            		echo "---------------------------------------------"
+
             		nmap $subip/24
             		
+            		echo "---------------------------------------------"
             		echo "returning to nmap menu (10s)"
 
             		sleep 10
@@ -205,16 +214,20 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 3 ];
+            if [ $svalg == 3 ];
             	
             	then
 
+            		echo " "
             		echo "what ip do you want to scan for open ports?"
 
             			read portip
 
+            		echo "-------------------------------------------"
+            		
             		nmap -p- $portip
             		
+            		echo "---------------------------------------------"
             		echo "returning to nmap menu (10s)"
 
             		sleep 10
@@ -222,16 +235,21 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 4 ];
+            if [ $svalg == 4 ];
             	
             	then
 
+            		echo " "
             		echo "what is the ip you want to scan for os & services?"
 
             			read osip
 
+            		echo "---------------------------------------------"
+
             		nmap -A $osip
 
+            		echo "---------------------------------------------"
+            		
             		echo "returning to nmap menu (10s)"
 
             		sleep 10
@@ -239,14 +257,17 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 5 ];
+            if [ $svalg == 5 ];
             	
             	then
 
+            		echo " "
             		echo "being devolped"
             		
             		sleep 2
 
+            		echo "---------------"
+
             		echo "returning to nmap menu (10s)"
 
             		sleep 10
@@ -254,15 +275,20 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 6 ];
+            if [ $svalg == 6 ];
             	
             	then
 
+            		echo " "
             		echo "what subnet do you want to test heartbleed? (ends with 0)"
 
             			read hbip
 
+            		echo "---------------------------------------------------------"
+
             		nmap -sV -p 443 --script=ssl-heartbleed $hbip/24
+
+            		echo "---------------------------------------------"
 
             		echo "returning to nmap menu (10s)"
 
@@ -271,10 +297,11 @@ nmapm(){
 
             fi
 
-            if [ $nmap == 7 ];
+            if [ $svalg == 7 ];
             	
             	then
 
+            		echo " "
             		echo "returning to main menu"
             		
             		sleep 4
